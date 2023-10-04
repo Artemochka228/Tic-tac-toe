@@ -39,7 +39,38 @@ void choice(bool plr)
 	symbs[plr] == 'X' ? symbs[!plr] = 'O' : symbs[!plr];
 }
 
-bool input();
+bool input()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << "| " << table[i][j] << " ";
+		}
+		cout << "|";
+		cout << endl;
+	}
+
+	cout << endl;
+	if (step) cout << "1-st player moves: ";
+	else cout << "2-nd player moves: ";
+
+	int n;
+	cin >> n;
+	if (n < 1 || n > 9) return false;
+
+	int i, j;
+	i = (n - 1) / 3;
+	j = (n - 1) % 3;
+
+	if (table[i][j] == 'O' || table[i][j] == 'X') return false;
+
+	table[i][j] = symbs[step];
+	step = !step;
+
+	return true;
+
+}
 
 int main() {
 
