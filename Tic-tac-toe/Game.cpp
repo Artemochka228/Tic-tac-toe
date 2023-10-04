@@ -33,7 +33,11 @@ void instruction()
 	_getch();
 }
 
-void choice();
+void choice(bool plr)
+{
+	cin >> symbs[plr];
+	symbs[plr] == 'X' ? symbs[!plr] = 'O' : symbs[!plr];
+}
 
 bool input();
 
