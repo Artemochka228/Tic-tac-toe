@@ -72,6 +72,8 @@ bool input()
 
 }
 
+bool win();
+
 int main() {
 
 	instruction();
@@ -80,7 +82,7 @@ int main() {
 	if (rand() & 1) step = true;
 	else step = false;
 
-	while (true)
+	while (!win())
 	{
 		system("cls");
 		if (!input())
