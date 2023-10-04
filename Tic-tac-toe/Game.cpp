@@ -2,10 +2,12 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <map>
 using namespace std;
 
 char table[3][3];
 bool step;
+map<bool, char> symbs;
 
 
 void instruction()
@@ -31,6 +33,10 @@ void instruction()
 	_getch();
 }
 
+void choice();
+
+bool input();
+
 int main() {
 
 	instruction();
@@ -38,5 +44,15 @@ int main() {
 	srand(time(NULL));
 	if (rand() & 1) step = true;
 	else step = false;
+
+	while (true)
+	{
+		system("cls");
+		if (!input())
+		{
+			cout << "Invalid input, please try again: ";
+			_getch();
+		}
+	}
 
 }
