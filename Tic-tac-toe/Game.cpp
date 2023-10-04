@@ -7,7 +7,9 @@ using namespace std;
 
 char table[3][3];
 bool step;
+bool flag;
 map<bool, char> symbs;
+
 
 
 void instruction()
@@ -72,7 +74,30 @@ bool input()
 
 }
 
-bool win();
+bool win()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		if (table[i][0] == table[i][1] && table[i][0] == table[i][2])
+		{
+			flag = table[i][0];
+			return true;
+		}
+
+		if (table[0][i] == table[1][i] && table[0][i] == table[2][i])
+		{
+			flag = table[0][i];
+			return true;
+		}
+
+		if ((table[0][0] == table[1][1] && table[0][0] == table[2][2]) || (table[0][2] == table[1][1] && table[0][2] == table[2][0]))
+		{
+			flag = table[0][0];
+			return true;
+		}
+	}
+	return false;
+}
 
 int main() {
 
@@ -91,5 +116,5 @@ int main() {
 			_getch();
 		}
 	}
-
+	flag == 'X' ? cout << "1-st player wins" : cout << "2-nd player wins" << endl;
 }
