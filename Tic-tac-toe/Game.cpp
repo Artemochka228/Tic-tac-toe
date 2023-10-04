@@ -7,7 +7,7 @@ using namespace std;
 
 char table[3][3];
 bool step;
-bool flag;
+char flag;
 map<bool, char> symbs;
 
 
