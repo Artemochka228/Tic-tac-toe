@@ -7,7 +7,7 @@ using namespace std;
 
 char table[3][3];
 bool currentPlayer;
-char flag;
+char flag = '-';
 map<bool, char> players;
 
 
@@ -93,9 +93,15 @@ bool checkWinner()
 			return true;
 		}
 
-		if ((table[0][0] == table[1][1] && table[0][0] == table[2][2]) || (table[0][2] == table[1][1] && table[0][2] == table[2][0]))
+		if ((table[0][0] == table[1][1] && table[0][0] == table[2][2]))
 		{
 			flag = table[0][0];
+			return true;
+		}
+
+		if ((table[0][2] == table[1][1] && table[0][2] == table[2][0]))
+		{
+			flag = table[0][2];
 			return true;
 		}
 	}
@@ -112,6 +118,8 @@ int main() {
 
 	chooseSymb();
 
+	currentPlayer = true;
+
 	while (!checkWinner())
 	{
 		system("cls");
@@ -121,5 +129,6 @@ int main() {
 			_getch();
 		}
 	}
-	flag == 'X' ? cout << "1-st player wins" : cout << "2-nd player wins" << endl;
+	if (flag == players[true]) cout << "1-st player wins" << endl;
+	else cout << "2-nd player wins" << endl;
 }
