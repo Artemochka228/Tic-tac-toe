@@ -74,7 +74,7 @@ bool input()
 
 }
 
-bool win()
+bool checkWinner()
 {
 	for (int i = 0; i < 3; i++)
 	{
@@ -107,7 +107,7 @@ int main() {
 	if (rand() & 1) step = true;
 	else step = false;
 
-	while (!win())
+	while (!checkWinner())
 	{
 		system("cls");
 		if (!input())
