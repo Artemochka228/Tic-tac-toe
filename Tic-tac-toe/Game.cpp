@@ -35,10 +35,10 @@ void instruction()
 	_getch();
 }
 
-void choice(bool plr)
+void choice()
 {
-	cin >> currentPlayer[plr];
-	currentPlayer[plr] == 'X' ? currentPlayer[!plr] = 'O' : currentPlayer[!plr];
+	cin >> currentPlayer[step];
+	currentPlayer[step] == 'X' ? currentPlayer[!step] = 'O' : currentPlayer[!step];
 }
 
 bool makeMove()
@@ -106,6 +106,8 @@ int main() {
 	srand(time(NULL));
 	if (rand() & 1) step = true;
 	else step = false;
+
+	choice();
 
 	while (!checkWinner())
 	{
