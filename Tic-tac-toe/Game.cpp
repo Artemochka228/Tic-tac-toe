@@ -8,7 +8,7 @@ using namespace std;
 char table[3][3];
 bool step;
 char flag;
-map<bool, char> symbs;
+map<bool, char> currentPlayer;
 
 
 
@@ -37,8 +37,8 @@ void instruction()
 
 void choice(bool plr)
 {
-	cin >> symbs[plr];
-	symbs[plr] == 'X' ? symbs[!plr] = 'O' : symbs[!plr];
+	cin >> currentPlayer[plr];
+	currentPlayer[plr] == 'X' ? currentPlayer[!plr] = 'O' : currentPlayer[!plr];
 }
 
 bool makeMove()
@@ -67,7 +67,7 @@ bool makeMove()
 
 	if (table[i][j] == 'O' || table[i][j] == 'X') return false;
 
-	table[i][j] = symbs[step];
+	table[i][j] = currentPlayer[step];
 	step = !step;
 
 	return true;
