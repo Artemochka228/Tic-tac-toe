@@ -141,5 +141,6 @@ int main() {
 		}
 	}
 	if (flag == players[true]) cout << "1-st player wins" << endl;
-	else cout << "2-nd player wins" << endl;
+	else if (flag == players[false]) cout << "2-nd player wins" << endl;
+	else cout << "Draw" << endl;
 }
