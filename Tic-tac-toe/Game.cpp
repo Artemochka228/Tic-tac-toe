@@ -7,7 +7,7 @@ using namespace std;
 
 char table[3][3];
 bool currentPlayer;
-char flag = '-';
+char flag = char(45);
 map<bool, char> players;
 
 
@@ -26,10 +26,10 @@ void printInstr()
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			cout << "| " << l + 1 << " ";
+			cout << "| " << l + 1 << ' ';
 			table[i][j] = char(49 + l++);
 		}
-		cout << "|";
+		cout << '|';
 		cout << endl;
 	}
 	_getch();
