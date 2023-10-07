@@ -12,7 +12,7 @@ map<bool, char> players;
 
 
 
-void instruction()
+void printInstr()
 {
 	cout << "***** Tic-tac-toe game ***** \n\n";
 	cout << "Rules:\n";
@@ -35,10 +35,10 @@ void instruction()
 	_getch();
 }
 
-void choice()
+void chooseSymb()
 {
 	cin >> players[currentPlayer];
-	players[currentPlayer] == 'X' ? players[!currentPlayer] = 'O' : players[!currentPlayer];
+	players[currentPlayer] == 'X' ? players[!currentPlayer] = 'O' : players[!currentPlayer] = 'X';
 }
 
 bool makeMove()
@@ -101,13 +101,13 @@ bool checkWinner()
 
 int main() {
 
-	instruction();
+	printInstr();
 
 	srand(time(NULL));
 	if (rand() & 1) currentPlayer = true;
 	else currentPlayer = false;
 
-	choice();
+	chooseSymb();
 
 	while (!checkWinner())
 	{
