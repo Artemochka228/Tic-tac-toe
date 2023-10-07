@@ -6,9 +6,9 @@
 using namespace std;
 
 char table[3][3];
-bool step;
+bool currentPlayer;
 char flag;
-map<bool, char> currentPlayer;
+map<bool, char> players;
 
 
 
@@ -37,8 +37,8 @@ void instruction()
 
 void choice()
 {
-	cin >> currentPlayer[step];
-	currentPlayer[step] == 'X' ? currentPlayer[!step] = 'O' : currentPlayer[!step];
+	cin >> players[currentPlayer];
+	players[currentPlayer] == 'X' ? players[!currentPlayer] = 'O' : players[!currentPlayer];
 }
 
 bool makeMove()
@@ -54,7 +54,7 @@ bool makeMove()
 	}
 
 	cout << endl;
-	if (step) cout << "1-st player moves: ";
+	if (currentPlayer) cout << "1-st player moves: ";
 	else cout << "2-nd player moves: ";
 
 	int n;
@@ -67,8 +67,8 @@ bool makeMove()
 
 	if (table[i][j] == 'O' || table[i][j] == 'X') return false;
 
-	table[i][j] = currentPlayer[step];
-	step = !step;
+	table[i][j] = players[currentPlayer];
+	currentPlayer = !currentPlayer;
 
 	return true;
 
@@ -104,8 +104,8 @@ int main() {
 	instruction();
 
 	srand(time(NULL));
-	if (rand() & 1) step = true;
-	else step = false;
+	if (rand() & 1) currentPlayer = true;
+	else currentPlayer = false;
 
 	choice();
 
