@@ -41,7 +41,7 @@ void choice(bool plr)
 	symbs[plr] == 'X' ? symbs[!plr] = 'O' : symbs[!plr];
 }
 
-bool input()
+bool makeMove()
 {
 	for (int i = 0; i < 3; i++)
 	{
@@ -110,7 +110,7 @@ int main() {
 	while (!checkWinner())
 	{
 		system("cls");
-		if (!input())
+		if (!makeMove())
 		{
 			cout << "Invalid input, please try again: ";
 			_getch();
