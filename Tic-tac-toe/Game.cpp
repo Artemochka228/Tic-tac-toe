@@ -33,10 +33,13 @@ void printInstr()
 		cout << endl;
 	}
 	_getch();
+	system("cls");
 }
 
 void chooseSymb()
 {
+	cout << "Choose symb for ";
+	currentPlayer ? cout << "1-st player: " : cout << "2-nd player: ";
 	cin >> players[currentPlayer];
 	players[currentPlayer] == 'X' ? players[!currentPlayer] = 'O' : players[!currentPlayer] = 'X';
 }
