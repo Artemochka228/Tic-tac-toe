@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits>
 #include <map>
 using namespace std;
 
@@ -61,6 +62,13 @@ bool makeMove()
 	else cout << "2-nd player moves: ";
 
 	int n;
+
+	if (cin.fail())
+	{
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	}
+
 	cin >> n;
 	if (n < 1 || n > 9) return false;
 
