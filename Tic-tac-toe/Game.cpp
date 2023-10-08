@@ -39,9 +39,16 @@ void printInstr()
 
 void chooseSymb()
 {
-	cout << "Choose symb for ";
-	currentPlayer ? cout << "1-st player: " : cout << "2-nd player: ";
-	cin >> players[currentPlayer];
+	char symb = char(45);
+	do
+	{
+		system("cls");
+		cout << "Choose symb for ";
+		currentPlayer ? cout << "1-st player: " : cout << "2-nd player: ";
+		cin >> symb;
+	} while (symb != 'O' && symb != 'X');
+	
+	players[currentPlayer] = symb;
 	players[currentPlayer] == 'X' ? players[!currentPlayer] = 'O' : players[!currentPlayer] = 'X';
 }
 
