@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits>
 #include <map>
 using namespace std;
 
@@ -38,9 +39,16 @@ void printInstr()
 
 void chooseSymb()
 {
-	cout << "Choose symb for ";
-	currentPlayer ? cout << "1-st player: " : cout << "2-nd player: ";
-	cin >> players[currentPlayer];
+	char symb = char(45);
+	do
+	{
+		system("cls");
+		cout << "Choose symb for ";
+		currentPlayer ? cout << "1-st player: " : cout << "2-nd player: ";
+		cin >> symb;
+	} while (symb != 'O' && symb != 'X');
+	
+	players[currentPlayer] = symb;
 	players[currentPlayer] == 'X' ? players[!currentPlayer] = 'O' : players[!currentPlayer] = 'X';
 }
 
@@ -61,6 +69,13 @@ bool makeMove()
 	else cout << "2-nd player moves: ";
 
 	int n;
+
+	if (cin.fail())
+	{
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	}
+
 	cin >> n;
 	if (n < 1 || n > 9) return false;
 
